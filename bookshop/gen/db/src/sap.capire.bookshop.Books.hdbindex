@@ -1,0 +1,2 @@
+INDEX sap_capire_bookshop_Books_title_index
+ON sap_capire_bookshop_Books (title)

@@ -12,12 +12,33 @@
     "@cap-js/sqlite": "*"
   },
   "dependencies": {
+    "@cap-js/hana": "^1",
     "@sap/cds": ">=7",
+    "@sap/cds-hana": "^2.0.0",
+    "@sap/hdi-deploy": "latest",
     "express": "^4.17.1"
   },
   "scripts": {
     "genres": "cds serve test/genres.cds",
     "start": "cds-serve",
     "watch": "cds watch"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "hana",
+        "vcap": {
+          "label": "hana",
+          "plan": "hdi-shared",
+          "name": "bookshop-db"
+        }
+      }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    },
+    "sql": {
+      "native_hana_associations": false
+    }
   }
 }
